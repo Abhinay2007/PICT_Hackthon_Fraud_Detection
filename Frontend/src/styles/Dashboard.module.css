@@ -1,0 +1,85 @@
+.dashboard {
+  padding: 32px;
+  color: #e5e7eb;
+}
+
+/* -------- TITLES -------- */
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+/* -------- TABLE -------- */
+.tableSection {
+  margin-bottom: 40px;
+}
+
+/* -------- CHARTS -------- */
+.chartsSection {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+/* Pie & Bar cards */
+.pieCard,
+.barCard {
+  flex: 1;
+  min-width: 420px;
+  background: rgba(2, 6, 23, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+/* -------- KPI -------- */
+.kpiSection {
+  margin-top: 20px;
+}
+
+/* -------- PIE EXPLANATION -------- */
+.pieExplanation {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #cbd5f5;
+  opacity: 0.85;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 900px) {
+  .chartsSection {
+    flex-direction: column;
+  }
+
+  .pieCard,
+  .barCard {
+    min-width: 100%;
+  }
+}
+
+.conclusionCard {
+  margin-top: 48px;
+  padding: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.9),
+    rgba(2, 6, 23, 0.95)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 20px;
+}
+
+.conclusionText {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.7;
+  color: #e5e7eb;
+  opacity: 0.9;
+  white-space: pre-line;
+}

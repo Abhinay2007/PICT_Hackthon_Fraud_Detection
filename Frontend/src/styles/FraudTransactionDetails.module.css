@@ -1,0 +1,144 @@
+.tableWrapper {
+  max-height: 720px;              /* ~30 rows sweet spot */
+
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 28px;
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  /* Smooth futuristic scroll */
+  scrollbar-width: thin;
+  scrollbar-color: #475569 transparent;
+}
+
+/* Webkit scrollbar (Chrome / Edge) */
+.tableWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #475569, #1e293b);
+  border-radius: 8px;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background: #020617;        /* same as dashboard bg */
+  z-index: 10;
+  box-shadow: 0 1px 0 rgba(148,163,184,0.1);
+}
+
+/* ---------------- TABLE ---------------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+/* ---------------- HEADER ---------------- */
+thead {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+th {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* ---------------- BODY ---------------- */
+td {
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #e5e7eb;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+  vertical-align: top;
+  min-width: 200px;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+
+tbody tr:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* ---------------- ROW STATES ---------------- */
+.safe {
+  opacity: 0.8;
+}
+
+.risky {
+  background: rgba(239, 68, 68, 0.03);
+}
+
+/* ---------------- TEXT STYLES ---------------- */
+.mono {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: #cbd5f5;
+}
+
+/* ---------------- BADGES ---------------- */
+.safeBadge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.riskBadge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  td {
+    font-size: 13px;
+  }
+}
+
+/* Risk cell layout */
+.riskCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  text-align: left;
+  /* line-break: auto; */
+  white-space: pre-line;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 100%;
+}
+
+/* LLM explanation text */
+.explanation {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #cbd5f5;
+  opacity: 0.85;
+}
