@@ -219,6 +219,7 @@ async def analyze_csv(file: UploadFile = File(...)):
     total_tx = len(df)
     fraud_count = 0
     total_amount = 0.0
+    total_anomaly_pct = 0.0
 
     # 🔥 Analytics counters
     fraud_type_counter = {}
@@ -231,9 +232,11 @@ async def analyze_csv(file: UploadFile = File(...)):
             total_amount += float(row["amount"])
 
         # ---------- Anomaly percentage ----------
-        anomaly_pct = None
+        anomaly_pct = 0.0
         if "anomaly_percentage" in row and pd.notna(row["anomaly_percentage"]):
             anomaly_pct = float(row["anomaly_percentage"])
+
+        total_anomaly_pct += anomaly_pct
 
         # ==================================================
         # ✅ STEP 1: CHECK ML PREDICTION FIRST
@@ -305,11 +308,13 @@ async def analyze_csv(file: UploadFile = File(...)):
     # 📊 FINAL ANALYTICS
     # ==================================================
     fraud_percentage = (fraud_count / total_tx) * 100 if total_tx else 0
+    anomaly_pct_avg = total_anomaly_pct / fraud_count if total_tx else 0
 
     summary = {
         "total_transactions": total_tx,
         "flagged_transactions": fraud_count,
-        "fraud_percentage": round(fraud_percentage, 2)
+        "fraud_percentage": round(fraud_percentage, 2),
+        "anomaly_pct_avg": round(anomaly_pct_avg, 2),
     }
 
     # ---------- PIE CHART ----------
@@ -331,7 +336,7 @@ async def analyze_csv(file: UploadFile = File(...)):
         "summary": summary,
         "fraud_type_distribution": fraud_type_distribution,
         "metrics": metrics,
-        "results": results
+        "results": results,
     }
 
 

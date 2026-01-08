@@ -14,12 +14,12 @@ import css from "../styles/LocationFraudBarChart.module.css"
 export default function LocationFraudBarChart({ data }) {
 
     const BAR_COLORS = [
-        "#ef4444", // red
-        "#f59e0b", // amber
-        "#3b82f6", // blue
-        "#10b981", // green
-        "#a855f7", // purple
-        "#ec4899"  // pink
+        "#f80909ff", // red
+        "#efbd09ff", // amber
+        "#136af5ff", // blue
+        "#0df5a7ff", // green
+        "#8410f0ff", // purple
+        "#ed0f7eff"  // pink
     ];
 
     console.log("BAR DATA 👉", data);

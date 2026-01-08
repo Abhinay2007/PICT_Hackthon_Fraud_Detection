@@ -80,7 +80,7 @@
 
 /* Accent colors per KPI (optional but 🔥) */
 .card:nth-child(1) .cardDetail {
-  color: #38bdf8; /* blue */
+  color: #0babf0; /* blue */
 }
 
 .card:nth-child(2) .cardDetail {
@@ -88,13 +88,16 @@
 }
 
 .card:nth-child(3) .cardDetail {
-  color: #f59e0b; /* amber */
+  color: #ee9804; /* amber */
 }
 
 .card:nth-child(4) .cardDetail {
-  color: #10b981; /* emerald */
+  color: #08eb9f; /* emerald */
 }
 
+.card:nth-child(5) .cardDetail {
+  color: #db0d0d; /* emerald */
+}
 /* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 768px) {
   .card-container {

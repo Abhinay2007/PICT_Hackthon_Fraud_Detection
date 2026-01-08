@@ -75,6 +75,7 @@ const Dashboard = () => {
           activeAnomalies={response.activeAnomalies}
           avgTransactionAmount={response.avgTransactionAmount}
           topRiskRegion={response.topRiskRegion}
+          anomalyPercentageAvg={response.anomalyPercentageAvg}
         />
       </div>
 

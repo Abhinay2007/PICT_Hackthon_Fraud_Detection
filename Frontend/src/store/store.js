@@ -27,7 +27,7 @@ export const sendFile = createAsyncThunk("send-file",
       }
     );
 
-    // 🔥 BACKEND RETURNS ANALYTICS JSON
+    // BACKEND RETURNS ANALYTICS JSON
     
     const response = res.data;
     console.log("Analytics response:", response);
@@ -50,6 +50,7 @@ export const sendFile = createAsyncThunk("send-file",
       activeAnomalies: response.summary.flagged_transactions,
       avgTransactionAmount: response.metrics.average_transaction_amount,
       topRiskRegion: response.metrics.top_risk_region,
+      anomalyPercentageAvg: response.summary.anomaly_pct_avg,
       fraudTransationDistribution: response.fraud_type_distribution,
       flagedTransactionDetails: flagedTransactionDetails,
     }
@@ -70,6 +71,7 @@ const responseSlice = createSlice({
     activeAnomalies: -1,
     avgTransactionAmount: -1,
     topRiskRegion: "Place",
+    anomalyPercentageAvg: 0.0,
     fraudTransationDistribution: {},
     flagedTransactionDetails: [{
       transactionId: "",
