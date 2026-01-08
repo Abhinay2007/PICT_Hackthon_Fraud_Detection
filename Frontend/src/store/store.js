@@ -41,6 +41,7 @@ export const sendFile = createAsyncThunk("send-file",
         location: ele.location,
         explaination: ele.risk_assessment, 
         isFraud: ele.is_fraud,
+        anomalyPercentage: ele.anomaly_pct
       })
     });
 
@@ -77,6 +78,7 @@ const responseSlice = createSlice({
       location: "",
       explaination: "",
       isFraud: false,
+      anomalyPercentage: 0.0,
     }]
   },
   reducers: {

@@ -7,4 +7,5 @@ public class FraudResultDTO {
     public String location;
     public String risk_assessment;
     public boolean is_fraud;
+    public float anomaly_pct;
 }

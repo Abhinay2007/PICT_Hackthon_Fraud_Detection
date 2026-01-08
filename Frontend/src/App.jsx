@@ -1,14 +1,19 @@
 import UploadPage from "./components/UploadPage";
 import Dashboard from "./components/Dashboard";
+import LandingPage from "./components/LandingPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const appRouter = createBrowserRouter([
   {
     path: "",
-    element: <UploadPage />
+    element: <LandingPage />
   },
   {
     path: "/",
+    element: <LandingPage />
+  },
+  {
+    path: "/upload",
     element: <UploadPage />
   },
   {

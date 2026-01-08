@@ -11,6 +11,7 @@ const FraudTransactionDetails = ({ flagedTransactionDetails }) => {
                         <th>Amount</th>
                         <th>Location</th>
                         <th>Risk Assessment</th>
+                        <th>Anomaly Percentage</th>
                     </tr>
                 </thead>
 
@@ -37,6 +38,24 @@ const FraudTransactionDetails = ({ flagedTransactionDetails }) => {
                                         )}
                                     </div>
                                 </td>
+                                <td className={css.anomalyCell}>
+                                    {row.isFraud ? (
+                                        <span
+                                            className={`${css.anomalyPill} ${row.anomalyPercentage > 40
+                                                ? css.highRisk
+                                                : row.anomalyPercentage > 15
+                                                    ? css.mediumRisk
+                                                    : css.lowRisk
+                                                }`}>
+                                            {row.anomalyPercentage}%
+                                        </span>
+                                    ) : (
+                                        <span className={`${css.anomalyPill} ${css.lowRisk}`}>
+                                            0%
+                                        </span>
+                                    )}
+                                </td>
+
                             </tr>
                         );
                     })}

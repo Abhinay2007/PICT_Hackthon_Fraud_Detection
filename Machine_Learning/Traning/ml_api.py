@@ -230,6 +230,11 @@ async def analyze_csv(file: UploadFile = File(...)):
         if "amount" in row and pd.notna(row["amount"]):
             total_amount += float(row["amount"])
 
+        # ---------- Anomaly percentage ----------
+        anomaly_pct = None
+        if "anomaly_percentage" in row and pd.notna(row["anomaly_percentage"]):
+            anomaly_pct = float(row["anomaly_percentage"])
+
         # ==================================================
         # ✅ STEP 1: CHECK ML PREDICTION FIRST
         # ==================================================
@@ -245,7 +250,8 @@ async def analyze_csv(file: UploadFile = File(...)):
                 "amount": row.get("amount"),
                 "location": row.get("location"),
                 "risk_assessment": "No suspicious activity detected.",
-                "is_fraud": is_fraud
+                "is_fraud": is_fraud,
+                "anomaly_pct": anomaly_pct
             })
             continue
 
@@ -267,10 +273,7 @@ async def analyze_csv(file: UploadFile = File(...)):
                 active_conditions.append(rule["explanation"])
                 fraud_type_counter[rule["explanation"]] = fraud_type_counter.get(rule["explanation"], 0) + 1
 
-        # ---------- Anomaly percentage ----------
-        anomaly_pct = None
-        if "anomaly_percentage" in row and pd.notna(row["anomaly_percentage"]):
-            anomaly_pct = float(row["anomaly_percentage"])
+
 
         # ---------- Region counter ----------
         location = row.get("location")
@@ -294,7 +297,8 @@ async def analyze_csv(file: UploadFile = File(...)):
             "amount": row.get("amount"),
             "location": location,
             "risk_assessment": explanation,
-            "is_fraud": is_fraud
+            "is_fraud": is_fraud,
+            "anomaly_pct": anomaly_pct
         })
 
     # ==================================================

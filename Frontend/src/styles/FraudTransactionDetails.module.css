@@ -142,3 +142,26 @@ tbody tr:hover {
   color: #cbd5f5;
   opacity: 0.85;
 }
+
+
+.anomalyPill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+
+.lowRisk {
+  color: #22c55e; /* green */
+}
+
+.mediumRisk {
+  color: #f59e0b; /* amber */
+}
+
+.highRisk {
+  color: #ef4444; /* red */
+}
