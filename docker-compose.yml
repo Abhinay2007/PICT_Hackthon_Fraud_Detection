@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   ml:
     build: ./Machine_Learning/Traning
@@ -8,10 +6,12 @@ services:
 
   backend:
     build: ./Spring_Backend/fraudDetect
+    restart: unless-stopped
     ports:
       - "8080:8080"
     depends_on:
-      - ml
+      mysql:
+        condition: service_healthy
 
   frontend:
     build: ./Frontend
@@ -19,3 +19,23 @@ services:
       - "5173:5173"
     depends_on:
       - backend
+
+  mysql:
+    image: mysql:8.3
+    container_name: pict_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: frauddb
+      MYSQL_USER: fraud
+      MYSQL_PASSWORD: fraud
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysql -u fraud -pfraud -e 'SELECT 1'"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mysql_data:

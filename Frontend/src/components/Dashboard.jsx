@@ -30,19 +30,20 @@ const Dashboard = () => {
     summary: {
       total_transactions: response.totalTransactions,
       flagged_transactions: response.activeAnomalies,
-      fraud_percentage: (response.activeAnomalies / response.totalTransactions).toFixed(2),
+      fraud_percentage: (
+        response.activeAnomalies / response.totalTransactions
+      ).toFixed(2),
     },
     fraudTypeDistribution: response.fraudTransationDistribution,
     metrics: {
       top_risk_region: response.topRiskRegion,
-      average_transaction_amount: response.avgTransactionAmount
+      average_transaction_amount: response.avgTransactionAmount,
     },
-    locationData
+    locationData,
   });
 
   return (
     <div className={`${css.dashboard} bg-[#020617]`}>
-
       {/* -------- TABLE FIRST -------- */}
       <div className={css.tableSection}>
         <h3 className={css.sectionTitle}>Transaction Risk Analysis</h3>
@@ -83,7 +84,6 @@ const Dashboard = () => {
         <h3 className={css.sectionTitle}>Overall Analysis</h3>
         <p className={css.conclusionText}>{conclusionText}</p>
       </div>
-
     </div>
   );
 };

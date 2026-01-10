@@ -4,8 +4,8 @@ import SampleButton from "./SampleButton";
 import Footer from "./Footer";
 
 const UploadPage = () => {
-    return (
-        <div className="min-h-screen bg-[#020617] text-slate-200 font-sans">
+  return (
+    <div className="min-h-screen bg-[#020617] text-slate-200 font-sans">
       <Header />
 
       <main className=" mx-auto px-6 pt-16 pb-24 text-center">
@@ -37,7 +37,6 @@ const UploadPage = () => {
           </div>
         </div>
 
-
         {/* BUTTON */}
         <SampleButton />
 
@@ -45,7 +44,7 @@ const UploadPage = () => {
         <Footer />
       </main>
     </div>
-    )
-}
+  );
+};
 
 export default UploadPage;
